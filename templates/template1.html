@@ -13,13 +13,16 @@
 
 {% include "sidebar.html" %}
 
-	<div id="center_container" class="home">
-{% include "loginlogout.html" %}
-
-
+	<div id="center_container">
+    {% include "loginlogout.html" %}
+		<div id="center_content">
+			{% block center_container %}
+			{% endblock %}
+		</div>
 
 	</div>
 
   {% include "footer.html" %}
+
 
 {% endblock %}

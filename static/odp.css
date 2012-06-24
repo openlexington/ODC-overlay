@@ -1,4 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Comfortaa|Press+Start+2P);
+
 .base_body {
+  background-color: black;
+  color: lime;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 15px;
+}
+
+a {
+ color: lime;
+ text-decoration: none;
+}
+
+#center_content {
+  margin-top: 50px;
 }
 
 .hidden {
@@ -13,15 +28,21 @@
 
 .button {
 	padding: 5px 10px;
-	border: 2px solid black;
 	text-align: center;
 	cursor: pointer;
     display: block;
 }
 
-a {color:#000;}
 
-textarea {font-family: Arial, Helvetica, sans-serif; padding: 4px;}
+input {
+  font-family: 'Press Start 2P', sans-serif;  
+  font-size: 9px;
+padding: 4px;
+  border: 1px solid lime;
+  color: lime;
+  background-color: black;
+  padding: 5px;
+}
 
 .clear_left {clear:left}
 .clear_right {clear:right}
@@ -732,10 +753,16 @@ li.resource #entry_votes {
     float:left;
     width: 100%;
     height: 70px;
+    margin-top: 200px;
+
+    opacity: 0.5;
 }
 #footer #footer_logo {
 	float:left;
 }
 #footer #footer_copyright {
 	float:right;
+
+.register_or_reset {
+  margin-top: 40px;
 }
