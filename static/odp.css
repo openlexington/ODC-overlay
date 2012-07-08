@@ -2,7 +2,7 @@
 
 .base_body {
   background-color: black;
-  color: lime;
+  color: green;
   font-family: 'Press Start 2P', sans-serif;
   font-size: 15px;
 }
@@ -261,12 +261,17 @@ margin-top: -14px;
 }
 
 #results_info {
+/*
 	position:relative;
 	height:50px;
+*/
+clear:both;
 }
 
 #results_info #count {
+/*
 	float:left;
+*/
 }
 
 #count {
@@ -274,7 +279,18 @@ margin-top: -14px;
 }
 
 #results_info #sort, #results_info #filter {
+/*
 	float:right;
+*/
+	clear: both;
+}
+
+#sort a {
+	padding-left: 1em;
+}
+
+#filter a {
+	padding-left: 1em;
 }
 
 #results_info .url_image {
@@ -288,47 +304,50 @@ margin-top: -14px;
 
 
 #results_info #filter_application .url_image {
-	background:url(/static/images/icon_application.png) 0 0 ;
+	/* background:url(/static/images/icon_application.png) 0 0 ; */
 }
 
 #results_info #filter_data .url_image {
-	background:url(/static/images/icon_data.png) 0 0;
+	/* background:url(/static/images/icon_data.png) 0 0; */
 }
 
 #results_info #filter_api .url_image {
-	background:url(/static/images/icon_api.png) 0 0;
+	/* background:url(/static/images/icon_api.png) 0 0; */
 }
 
 #results_info  #sort_rating_score .url_image, #results_info  #sort_vote_count .url_image{
-	background:url(/static/images/icon_ratings.png) 0 0;
+	/* background:url(/static/images/icon_ratings.png) 0 0; */
 }
 
 #results_info  .sort_nomination #sort_rating_score .url_image{
-	background:url(/static/images/icon_votesort.png) 0 0;
+	/* background:url(/static/images/icon_votesort.png) 0 0; */
 }
 
 #results_info  #sort_name .url_image, #results_info #sort_title .url_image{
-	background:url(/static/images/icon_alpha.png) 0 0;
+	/* background:url(/static/images/icon_alpha.png) 0 0; */
 }
 
 #results_info .info_label {
+/*
 	padding-top: 16px;
+*/
 }
 
 #results_info ul {
 	position:relative;
-	display:inline;
+	/*display:inline;*/
 	padding-left: 4px;
+        clear:both;
 }
 
 #results_info ul li {
-	float:right;
+	float:left;
 }
 
 .resource {
 	border:1px solid black;	
     margin-bottom:10px;
-    padding:5px 5px 0;
+    padding-top: 2em;
 }
 .resource div {
     padding-bottom: 5px;
@@ -336,7 +355,6 @@ margin-top: -14px;
 
 #url_types {
     position:relative;
-    height: 40px;
 }
        
 .url_image {
@@ -345,10 +363,10 @@ margin-top: -14px;
     float:left;
 }
 .url_image#resource_icon_Documentation {
-  background:url(/static/images/icon_documentation_sm.png) 0 -44px;
+  /* background:url(/static/images/icon_documentation_sm.png) 0 -44px; */
 }
 .url_image#resource_icon_Application {
-  background:url(/static/images/icon_application_sm.png) 0 -44px;
+  /* background:url(/static/images/icon_application_sm.png) 0 -44px; */
 }
 .url_image#resource_icon_API {
   background:url(/static/images/icon_api_sm.png) 0 -44px;

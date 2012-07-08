@@ -1,0 +1,72 @@
+{% extends "template1.html" %}
+
+{% load thumbnail %}
+{% load sorting_tags %}
+{% load pagination_tags %}
+
+{% block title %} - Search Results{% endblock %}
+
+{% block js_ready %}
+	<script>
+		$(document).ready(function () {
+			odp.getTags();
+			odp.setupSearchInput();
+
+			odp.setupSortLinks();
+			odp.setupFilterLinks();
+		});
+	</script>
+{% endblock %}
+
+{% block center_container %}
+
+	{% if tag %}
+		<h1 id="results_label">{{ tag }}</h1>
+	{% else %}
+		{% if "search" in current_path and "?" in current_path %}
+			<h1 id="results_label">Search Results</h1>
+		{% else %}
+			<h1 id="results_label">All Records</h1>
+		{% endif %}
+	{% endif %}
+	<div id="results_header">
+		<div id="results_info">
+			<h2 id="count">{{results.count}} RESULTS</h2>
+			<div id="filter">
+				<strong>FILTER:</strong>
+				<a href="javascript:void()" onClick="odp.getFiltered('data');return false;" class="">Data</a>
+				<a href="javascript:void()" onClick="odp.getFiltered('api');return false;" class="">API</a>
+				<a href="javascript:void()" onClick="odp.getFiltered('application');return false;" class="">App</a>
+			</div>
+			<div id="sort">
+				<strong>SORT:</strong>
+				{% anchor name Name %}
+				{% anchor rating_score Rating %}
+			</div>
+		</div>
+	</div>
+{% autosort results %}
+{% autopaginate results 6 %}
+	{% if results.count > 0 %}
+		<div id="results_list">
+			{% for r in results %}
+				<div class="resource">
+					<h3 id="resource_title"><a href="{{SITE_ROOT}}/opendata/resource/{{r.id}}/{{r.name|slugify}}">{{r}}</a></h3>
+          <div class="byline">by: {{r.organization}}</div>
+					<div id="url_types">
+						type:
+						{% for u in r.get_distinct_url_types %}
+							<span class="type">{{u}}</span>
+						{% endfor %}
+					</div>
+					<div id="resource_info">
+						<h4 id="resource_desc">{{r.short_description|safe|default:"No description available."}}</h4>
+						<div id="resource_button"><a class="button" href="{{SITE_ROOT}}/opendata/resource/{{r.id}}/{{r.name|slugify}}">VIEW DETAILS ({{r.name}})</a></div>
+					</div>
+				{% endfor %}
+			</div>
+   {% endif %}
+
+	<div id="pager">{% paginate %}</div>
+
+{% endblock %}
